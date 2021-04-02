@@ -16,8 +16,13 @@ apply from: '../build.common.gradle'
 
 repositories {
     maven { url = "https://dl.bintray.com/first-tech-challenge/ftcsdk/" }
+    maven { url = "https://maven.0x778.tk" }
 }
 
 dependencies {
     annotationProcessor files('lib/OpModeAnnotationProcessor.jar')
+    implementation 'org.openftc:easyopencv:1.4.4'
+    implementation 'com.arcrobotics:ftclib:1.1.6'
+    // the following is optional if you want vision
+    implementation 'com.arcrobotics.ftclib:vision:1.1.0'
 }
