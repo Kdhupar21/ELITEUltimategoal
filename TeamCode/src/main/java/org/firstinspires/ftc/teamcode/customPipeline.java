@@ -240,6 +240,7 @@ public class customPipeline extends LinearOpMode
             input.copyTo(contoursOnPlainImageMat);
             Imgproc.drawContours(contoursOnPlainImageMat, contoursList, -1, BLUE, CONTOUR_LINE_THICKNESS, 8);
 
+
             return contoursList;
         }
 
@@ -251,6 +252,7 @@ public class customPipeline extends LinearOpMode
 
             Imgproc.erode(input, output, erodeElement);
             Imgproc.erode(output, output, erodeElement);
+            //Imgproc.open
 
             Imgproc.dilate(output, output, dilateElement);
             Imgproc.dilate(output, output, dilateElement);
@@ -262,8 +264,8 @@ public class customPipeline extends LinearOpMode
             Point[] points = contour.toArray();
             MatOfPoint2f contour2f = new MatOfPoint2f(contour.toArray());
             RotatedRect minEllipse = Imgproc.fitEllipse(contour2f);
-
-            // Do a rect fit to the contour, and draw it on the screen
+//miniEllipse.size().width();
+//ellipse.angle// a rect fit to the contour, and draw it on the screen
             RotatedRect rotatedRectFitToContour = Imgproc.minAreaRect(contour2f);
 
             drawRotatedRect(rotatedRectFitToContour, input);
@@ -527,5 +529,11 @@ public class customPipeline extends LinearOpMode
 
             //Imgproc.ellipse(drawOn, points[i], RED, 2);
         }
+//        static void findCenter(RotatedRect rect)
+//        {
+////            M = cv2.moments(c);
+////            cX = int(M["m10"] / M["m00"])
+////            cY = int(M["m01"] / M["m00"])
+//        }
     }
 }
